@@ -1,1 +1,7 @@
-["Do homework | Completed: False | Task ID: 1"]
+[
+    {
+        "id": 1,
+        "title": "Hello World",
+        "completed": false
+    }
+]
