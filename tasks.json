@@ -3,10 +3,5 @@
         "id": 1,
         "title": "Clean",
         "completed": true
-    },
-    {
-        "id": 2,
-        "title": "clean",
-        "completed": false
     }
 ]
