@@ -1,0 +1,197 @@
+## Project Goal
+
+Your task is to build a simple **Todo List application** that runs in the terminal using Python.
+
+The app should allow a user to add, view, complete, and delete tasks. The tasks should also be saved, so they are still available after the program is closed.
+
+---
+
+## What You Need to Build
+
+Your app should support these commands:
+
+```bash
+python todo.py add "Finish homework"
+python todo.py list
+python todo.py done 1
+python todo.py delete 1
+```
+
+You can decide how to structure the code and how the app should work internally.
+
+---
+
+## Main Requirements
+
+### 1. Add a Task
+
+The user should be able to add a new task from the terminal.
+
+Each task should have at least:
+
+* An ID
+* A title
+* A completed status
+
+Example task:
+
+```text
+ID: 1
+Title: Finish homework
+Completed: No
+```
+
+---
+
+### 2. List Tasks
+
+The user should be able to see all saved tasks.
+
+Completed and incomplete tasks should look different.
+
+Example output:
+
+```text
+[1] ❌ Finish homework
+[2] ✅ Read Python documentation
+```
+
+---
+
+### 3. Complete a Task
+
+The user should be able to mark a task as completed by giving the task ID.
+
+Example:
+
+```bash
+python todo.py done 1
+```
+
+---
+
+### 4. Delete a Task
+
+The user should be able to delete a task by giving the task ID.
+
+Example:
+
+```bash
+python todo.py delete 1
+```
+
+---
+
+### 5. Save Tasks
+
+Tasks should not disappear when the program closes.
+
+You should save the tasks in a local file.
+
+Suggested file:
+
+```text
+tasks.json
+```
+
+---
+
+## GitHub Requirement
+
+You must use **Git and GitHub** for this project.
+
+You should:
+
+* Create a GitHub repository
+* Commit your work regularly
+* Use meaningful commit messages
+* Push your final code to GitHub
+* Add a `README.md` file
+
+Example commit messages:
+
+```text
+Initial project setup
+Add task creation
+Add task listing
+Save tasks to file
+Add complete task command
+Add delete task command
+Improve error handling
+```
+
+---
+
+## README Requirement
+
+Your GitHub repository must include a `README.md` file.
+
+The README should explain:
+
+* What the app does
+* How to run it
+* Available commands
+* Example usage
+* What you learned while building it
+
+---
+
+## Error Handling
+
+Your app should not crash easily.
+
+Think about what should happen if:
+
+* The user enters an unknown command
+* The user forgets to write a task title
+* The user tries to complete a task that does not exist
+* The user tries to delete a task that does not exist
+* The saved task file does not exist yet
+
+---
+
+## Rules
+
+Use Python.
+
+Try to use only standard Python libraries.
+
+You may research anything you need, including:
+
+* Command-line arguments
+* Reading and writing files
+* JSON
+* Functions
+* Error handling
+* Git and GitHub
+
+The goal is not just to finish the app, but to understand how it works.
+
+---
+
+## Optional Extra Features
+
+Only add these after the main version works:
+
+* Edit a task
+* Search tasks
+* Clear completed tasks
+* Add priorities
+* Add due dates
+* Show task statistics
+* Filter by completed or pending tasks
+
+---
+
+## Completion Checklist
+
+Your project is complete when:
+
+* The app runs from the terminal
+* A task can be added
+* Tasks can be listed
+* A task can be marked as completed
+* A task can be deleted
+* Tasks are saved between runs
+* The code is pushed to GitHub
+* The README explains the project clearly
