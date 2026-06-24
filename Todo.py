@@ -1,4 +1,3 @@
-from sys import argv
 from json import dump, load, JSONDecodeError
 from os import path
 
@@ -50,8 +49,8 @@ def list_tasks():
         return
 
     for task in tasks:
-        status = "Complete" if task["completed"] else "Incomplete"
-        print(f"[{task['id']}] {status} {task['title']}")
+        status = " | Complete " if task["completed"] else " | Incomplete "
+        print(f"[{task['id']}] {task['title']} {status}" )
 
 
 def complete_task(task_id):
@@ -84,56 +83,66 @@ def print_help():
     print("""
 Todo App Commands:
 
-python todo.py add "Task title"
-python todo.py list
-python todo.py done <id>
-python todo.py delete <id>
+> add "Task title"
+> list
+> done <id>
+> delete <id>
 """)
 
-
 def main():
-    if len(argv) < 2:
-        print_help()
-        return
+    print("\nType 'help' for commands or 'exit' to exit.\n")
 
-    command = argv[1]
+    while True:
+        command_line = input("> ").strip()
 
-    if command == "add":
-        if len(argv) < 3:
-            print("Error: Missing task title.")
-            return
+        if not command_line:
+            continue
 
-        title = " ".join(argv[2:])
-        add_task(title)
+        if command_line.lower() == "exit":
+            break
 
-    elif command == "list":
-        list_tasks()
+        parts = command_line.split(maxsplit=1)
+        command = parts[0].lower()
 
-    elif command == "done":
-        if len(argv) < 3:
-            print("Error: Missing task ID.")
-            return
+        if command.lower() == "help":
+            print_help()
 
-        try:
-            task_id = int(argv[2])
-            complete_task(task_id)
-        except ValueError:
-            print("Task ID must be a number.")
+        elif command.lower() == "add":
+            if len(parts) < 2:
+                print("!Error: Missing task title")
+                continue
 
-    elif command == "delete":
-        if len(argv) < 3:
-            print("Error: Missing task ID.")
-            return
+            title = " ".join((parts[1:]))
+            add_task(title)
 
-        try:
-            task_id = int(argv[2])
-            delete_task(task_id)
-        except ValueError:
-            print("Task ID must be a number.")
+        elif command.lower() == "list":
+            list_tasks()
+        
+        elif command.lower() == "done":
+            if len(parts) < 2:
+                print("!Error: Missing task ID")
+                continue
 
-    else:
-        print("Unknown command.")
-        print_help()
+            try:
+                task_id = int(parts[1])
+                complete_task(task_id)
+            except ValueError:
+                print("Task ID must be a number.")
+
+        elif command.lower() == "delete":
+            if len(parts) < 2:
+                print("!Error: Missing task ID")
+                continue
+
+            try:
+                task_id = int(parts[1])
+                delete_task(task_id)
+            except ValueError:
+                print("Task ID must be a number.")
+        
+        else:
+            print("\nUknown Command.\n")
+            print_help()
 
 
 if __name__ == "__main__":
